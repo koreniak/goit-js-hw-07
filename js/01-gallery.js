@@ -37,13 +37,26 @@ function onGallaryImageClick (e) {
     const instance = basicLightbox.create(`
     <img src="${linkOfOriginalImg}" width="800" height="600">
     `, {
-        onShow: onCloseLightbox
+        onShow: onCloseLightbox,
+        onClose: offCloseLightbox,
     });
 
     instance.show();
 
     function onCloseLightbox(instance) {
         window.addEventListener('keydown', onEscKeyPress);
+    
+        function onEscKeyPress(e) {
+            const ESC_KEY_CODE = 'Escape';
+    
+            if (e.code === ESC_KEY_CODE) {
+                instance.close()
+            };
+        }
+    }
+
+    function offCloseLightbox(instance) {
+        window.removeEventListener('keydown', onEscKeyPress);
     
         function onEscKeyPress(e) {
             const ESC_KEY_CODE = 'Escape';
