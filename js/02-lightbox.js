@@ -30,9 +30,10 @@ function onLightboxImageClick (e) {
         return;
     };
 
-    var lightbox = new SimpleLightbox('.gallery a', {
+    const gallery = new SimpleLightbox('.gallery a', {
         captionDelay: 250,
         captionsData: "alt",
         closable: true,
     });
+    gallery.on('show.simplelightbox')
 }
