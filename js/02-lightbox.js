@@ -33,7 +33,6 @@ function onLightboxImageClick (e) {
     const gallery = new SimpleLightbox('.gallery a', {
         captionDelay: 250,
         captionsData: "alt",
-        closable: true,
     });
-    gallery.on('show.simplelightbox')
+    gallery.show()
 }
